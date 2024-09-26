@@ -1,0 +1,164 @@
+
+    <!DOCTYPE html>
+    <html lang="zh"> <!-- 声明文档类型为HTML，并设置语言为中文 -->
+    <head>
+        <meta charset="UTF-8"> <!-- 设置字符编码为UTF-8，支持多种语言字符 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 设置视口，以适应不同设备的屏幕宽度 -->
+        <title>量子信息基础</title> <!-- 网页的标题，显示在浏览器标签上 -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- 引入Google字体，使用Roboto字体 -->
+        <script src="https://cdn.tailwindcss.com"></script> <!-- 引入Tailwind CSS库，用于快速样式设计 -->
+        <style>
+            /* 在这里定义网页的CSS样式 */
+            body {
+                font-family: 'Roboto', sans-serif; /* 设置网页字体为Roboto */
+                font-size: 16px; /* 设置字体大小 */
+            }
+            .container {
+                display: flex; /* 使用Flexbox布局 */
+                flex-direction: row; /* 水平排列子元素 */
+                max-width: 1200px; /* 设置最大宽度 */
+                margin: auto; /* 自动水平居中 */
+            }
+            .sidebar {
+                flex: 1; /* 侧边栏占据1份空间 */
+                padding: 10px; /* 内边距 */
+                background-color: #f1f1f1; /* 背景颜色 */
+                border-right: 1px solid #ccc; /* 右边框 */
+            }
+            .content {
+                flex: 3; /* 内容区域占据3份空间 */
+                padding: 10px; /* 内边距 */
+            }
+            .accordion {
+                cursor: pointer; /* 鼠标悬停时显示为手型 */
+                padding: 10px; /* 内边距 */
+                border: none; /* 无边框 */
+                text-align: left; /* 左对齐 */
+                outline: none; /* 无轮廓 */
+                transition: 0.4s; /* 动画过渡效果 */
+                font-size: 18px; /* 一级标题字体大小 */
+                background-color: #e2e8f0; /* 背景颜色 */
+                margin-bottom: 5px; /* 下边距 */
+                width: 100%; /* 宽度100% */
+            }
+            .accordion.active, .accordion:hover {
+                background-color: #ccc; /* 鼠标悬停或激活时的背景颜色 */
+            }
+            .panel {
+                padding: 0 10px; /* 内边距 */
+                display: none; /* 默认隐藏面板 */
+                overflow: hidden; /* 隐藏溢出内容 */
+                background-color: white; /* 背景颜色 */
+            }
+            .subtitle {
+                padding: 10px; /* 内边距 */
+                border: 1px solid #ccc; /* 边框 */
+                margin-top: 10px; /* 上边距 */
+                display: none; /* 默认隐藏二级标题 */
+                font-size: 14px; /* 二级标题字体大小 */
+            }
+            .video-toggle {
+                cursor: pointer; /* 鼠标悬停时显示为手型 */
+                padding: 10px; /* 内边距 */
+                border: 1px solid #ccc; /* 边框 */
+                margin-top: 10px; /* 上边距 */
+                background-color: #e2e8f0; /* 背景颜色 */
+                width: 100%; /* 宽度100% */
+            }
+            .video-frame {
+                display: none; /* 默认隐藏视频框 */
+                margin-top: 10px; /* 上边距 */
+            }
+            iframe {
+                width: 100%; /* 视频框宽度100% */
+                height: 360px; /* 视频框高度 */
+                border: none; /* 无边框 */
+            }
+        </style>
+    </head>
+    <body class="bg-gray-100 text-gray-800"> <!-- 网页主体部分，设置背景颜色和文本颜色 -->
+        <div class="container"> <!-- 主容器 -->
+            <div class="sidebar"> <!-- 侧边栏 -->
+                <button class="accordion">什么是量子信息？</button> <!-- 一级标题 -->
+                <button class="accordion">量子信息的基本概念</button> <!-- 一级标题 -->
+                <button class="accordion">相关链接</button> <!-- 一级标题 -->
+            </div>
+            <div class="content"> <!-- 内容区域 -->
+                <div class="panel"> <!-- 面板 -->
+                    <p class="mt-2"> <!-- 段落 -->
+                        量子信息是利用量子力学的原理来处理和传输信息的领域。与经典信息不同，量子信息可以同时处于多个状态，这种特性称为叠加。
+                    </p>
+                    <div class="subtitle"> <!-- 二级标题 -->
+                        <p>量子信息的详细介绍...</p>
+                    </div>
+                </div>
+                <div class="panel"> <!-- 面板 -->
+                    <ul class="list-disc list-inside mt-2"> <!-- 列表 -->
+                        <li>量子比特（Qubit）：量子信息的基本单位，可以同时表示0和1。</li>
+                        <li>量子纠缠：两个或多个量子比特之间的特殊关联，使得它们的状态相互依赖。</li>
+                        <li>量子计算：利用量子比特进行计算，具有超越经典计算机的潜力。</li>
+                    </ul>
+                    <div class="subtitle"> <!-- 二级标题 -->
+                        <p>量子信息基本概念的详细介绍...</p>
+                    </div>
+                </div>
+                <div class="panel"> <!-- 面板 -->
+                    <ul class="list-disc list-inside mt-2"> <!-- 列表 -->
+                        <li>
+                            <a href="https://quantum-computing.ibm.com/" class="text-blue-500">IBM量子计算平台</a> <!-- 链接 -->
+                        </li>
+                        <li>
+                            <a href="https://www.quantamagazine.org/" class="text-blue-500">量子杂志</a> <!-- 链接 -->
+                        </li>
+                        <li>
+                            <a href="https://www.nature.com/subjects/quantum-information" class="text-blue-500">自然期刊：量子信息</a> <!-- 链接 -->
+                        </li>
+                    </ul>
+                    <div class="subtitle"> <!-- 二级标题 -->
+                        <p>相关链接的详细介绍...</p>
+                        <h2 class="subtitle">视频介绍</h2> <!-- 二级标题 -->
+                        <div class="video-toggle">点击查看/隐藏视频</div> <!-- 可点击区域 -->
+                        <div class="video-frame"> <!-- 视频框 -->
+                            <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=901691759&bvid=BV1eN4y1w7SS&cid=866250829&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe> <!-- 嵌入视频 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="text-center mt-5"> <!-- 页脚 -->
+            <p>© 2023 量子信息基础网页</p> <!-- 页脚内容 -->
+        </footer>
+        <script>
+            var acc = document.getElementsByClassName("accordion"); // 获取所有的一级标题
+            var panels = document.getElementsByClassName("panel"); // 获取所有的面板
+            var subtitles = document.getElementsByClassName("subtitle"); // 获取所有的二级标题
+            var videoToggle = document.querySelector(".video-toggle"); // 获取视频切换按钮
+            var videoFrame = document.querySelector(".video-frame"); // 获取视频框
+
+            // 为每个一级标题添加点击事件
+            for (let i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    this.classList.toggle("active"); // 切换激活状态
+                    var panel = panels[i]; // 获取对应的面板
+                    var subtitle = subtitles[i]; // 获取对应的二级标题
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none"; // 隐藏面板
+                        subtitle.style.display = "none"; // 隐藏二级标题
+                    } else {
+                        panel.style.display = "block"; // 显示面板
+                        subtitle.style.display = "block"; // 显示二级标题
+                    }
+                });
+            }
+
+            // 为视频切换按钮添加点击事件
+            videoToggle.addEventListener("click", function() {
+                if (videoFrame.style.display === "block") {
+                    videoFrame.style.display = "none"; // 隐藏视频框
+                } else {
+                    videoFrame.style.display = "block"; // 显示视频框
+                }
+            });
+        </script>
+    </body>
+    </html>
